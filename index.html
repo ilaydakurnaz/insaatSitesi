@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="tr-TR">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="İlayda Kurnaz" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Home - Corporate Layout 2 | Canvas</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" class="sub-title">
+
+						<ul>
+							<li><a href="index.html"><div>Ana Sayfa</div><span>Biz kimiz</span></a>
+							</li>
+                            <li><a href="team.html"><div>Takımımız</div><span>Sizin için çalışıyoruz</span></a>
+							</li>
+                            <li><a href="about.html"><div>Hakkımızda</div><span>Neler Yaparız</span></a>
+                            <li><a href="contact.html"><div>İletişim</div><span></span></a>
+							</li>
+						</ul>
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
+
+			<div class="swiper-container swiper-parent">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide dark" style="background-image: url('images/imagess/backgorund1.jpg');">
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								
+								<p data-caption-animate="fadeInUp" data-caption-delay="200"></p>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide dark">
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								<h2 data-caption-animate="fadeInUp">
+                                TAM DA HAYAL ETTİĞİNİZ GİBİ BİR YAŞAM
+                                </h2>
+                                </p>
+							</div>
+						</div>
+						<div class="video-wrap">
+							<video poster="images/videos/explore.jpg" preload="auto" loop autoplay muted>
+								<source src='images/videos/explore.mp4' type='video/mp4' />
+								<source src='images/videos/explore.webm' type='video/webm' />
+							</video>
+							<div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+						</div>
+					</div>
+					<div class="swiper-slide" style="background-image: url('images/imagess/temelden%20%C3%A7at%C4%B1ya.png'); background-position: center top;">
+						<div class="container clearfix">
+							<div class="slider-caption">
+								<h2 data-caption-animate="fadeInUp"></h2>
+								<p data-caption-animate="fadeInUp" data-caption-delay="200"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
+				<div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
+				<div id="slide-number"><div id="slide-number-current"></div><span>/</span><div id="slide-number-total"></div></div>
+			</div>
+
+			<script>
+				jQuery(document).ready(function($){
+					var swiperSlider = new Swiper('.swiper-parent',{
+						paginationClickable: false,
+						slidesPerView: 1,
+						grabCursor: true,
+						onSwiperCreated: function(swiper){
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						},
+						onSlideChangeStart: function(swiper){
+							$('#slide-number-current').html(swiper.activeIndex + 1);
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+								$toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+							});
+						},
+						onSlideChangeEnd: function(swiper){
+							$('#slider .swiper-slide').each(function(){
+								if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+							});
+							$('#slider .swiper-slide:not(".swiper-slide-active")').each(function(){
+								if($(this).find('video').length > 0) {
+									if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+								}
+							});
+							if( $('#slider .swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+
+							$('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						}
+					});
+
+					$('#slider-arrow-left').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipePrev();
+					});
+
+					$('#slider-arrow-right').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipeNext();
+					});
+
+					$('#slide-number-current').html(swiperSlider.activeIndex + 1);
+					$('#slide-number-total').html(swiperSlider.slides.length);
+				});
+			</script>
+
+		</section>
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="section header-stick">
+					<div class="container clearfix">
+						<div class="row">
+
+							<div class="col-md-9">
+								<div class="heading-block bottommargin-sm">
+									<h3>Herkes ev sahibi oluncaya kadar</h3>
+								</div>
+
+								<p class="nobottommargin">
+</p>
+							</div>
+
+							
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="container clearfix">
+
+					<div class="col_one_third nobottommargin">
+						<div class="feature-box media-box">
+							<div class="fbox-media">
+								<img src="images/imagess/AkgundeKariyer-300x225.jpg" alt=>
+							</div>
+							<div class="fbox-desc">
+								<h3>Neden Tercih Etmelisiniz?<span class="subtitle"></span></h3>
+								<p> Türkiye’nin her yerine, insana yakışır, kaliteli, güvenli ve modern yaşam alanları kurmak üzere hayata geçirdik.Kaliteyi, bilgi birikimi ve deneyimle birleştirerek kısa sürede binlerce kişiye konforu sağladık.Çünkü biz,bir ülkenin geleceğinin, sağlıklı yaşam alanlarında büyüyen bireylerin oluşturacağına inanıyoruz. Her zaman en iyisini üretebilmek için yapı sektörüne dikkatle ve özenle odaklanıyoruz.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col_one_third nobottommargin">
+						<div class="feature-box media-box">
+							<div class="fbox-media">
+								<img src="images/imagess/vizyonumuz..jpg" alt="Why choose Us?">
+							</div>
+							<div class="fbox-desc">
+								<h3>Misyonumuz<span class="subtitle"></span></h3>
+								<p>İnşaasına katkıda bulunduğumuz her şehrin kişiliğini tamamlayan yapılar kurmak. Yaşam alanlarını sanata dönüştürmek. Geleceğin büyüklerine, içinde keyifle yaşayacakları şehirler bırakmak.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col_one_third nobottommargin col_last">
+						<div class="feature-box media-box">
+							<div class="fbox-media">
+								<img src="images/imagess/insaat.jpg" alt="Why choose Us?">
+							</div>
+							<div class="fbox-desc">
+								<h3>Neler Yapacağız?<span class="subtitle"></span></h3>
+								<p>Daha geliştirilmiş plazar,iteler,avmler,villalar yapacağız.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="section parallax bottommargin-lg" style="background-image: url('images/imagess/backgorund1.jpg'); padding: 100px 0;" data-stellar-background-ratio="0.3">
+					<div class="heading-block center nobottomborder nobottommargin">
+						<h2>“Tam da hayal ettiğiniz gibi bir yaşam”.</h2>
+					</div>
+				</div>
+
+				<div class="container clearfix">
+
+					<div class="row">
+
+						<div class="col-md-5 bottommargin">
+
+							<div class="accordion accordion-border clearfix nobottommargin">
+
+								<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Plazalar</div>
+								<div class="acc_content clearfix">Plaza´nın orman manzaralı ve boğaz manzaralı katlarından İstanbul´da olmanın tadını çıkarabilirsiniz.</div>
+
+								<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Villa</div>
+								<div class="acc_content clearfix">Kent içinde ya da dışında yer alan, bahçeli, bir ya da iki,üç ve dört katlı zengin konutlar.Bahçelerinde havuzları da bulunur. </div>
+
+								<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Siteler</div>
+								<div class="acc_content clearfix">Hızlı kentleşme ve nüfus artışı, değişik eğitim, gelenek ve kültürden, ayrı ayrı toplumsal konumlardaki insanları aynı apartmanda bir araya getirmektedir. Karşılıklı saygı, sevgi, dostluk, özveri gerektiren ortak yaşamda uyum ve düzeni sağlamak İçin, konut sahibi ve kiracıların hak, yetki, görev ve sorumlulukları
+                                </div>
+
+								<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>AVM</div><div class="acc_content clearfix">
+								Hizmete açılan bir alışveriş merkezi'dir.İlayda Kurnaz tarafından tasarlanan yapının en önemli özelliği dükkânların çoğunun kolay bulunmasıdır.  </div>
+
+							</div>
+
+						</div>
+
+						<div class="col-md-3 col-sm-6 bottommargin">
+
+							<div class="fancy-title title-border">
+								<h4>İşlerimiz</h4>
+							</div>
+
+							<ul class="skills">
+								<li data-percent="70">
+									<span>Plazalar</span>
+									<div class="progress">
+										<div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="70" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+									</div>
+								</li>
+								<li data-percent="55">
+									<span>Villa</span>
+									<div class="progress">
+										<div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="55" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+									</div>
+								</li>
+								<li data-percent="90">
+									<span>Siteler</span>
+									<div class="progress">
+										<div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="90" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+									</div>
+								</li>
+								<li data-percent="80">
+									<span>AVM</span>
+									<div class="progress">
+										<div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="85" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+									</div>
+                                    
+								</li>
+							
+							</ul>
+
+						</div>
+
+						
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="section topmargin-sm footer-stick">
+
+					<h4 class="uppercase center">Müşteri<span>Sözleri</span> </h4>
+
+					<div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
+						<div class="flexslider">
+							<div class="slider-wrap">
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="images/imagess/Snapchat-9617424522.jpg" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>Güler yüzlü olmayan, dükkan açmamalı.</p>
+										<div class="testi-meta">
+											Güler Kurnaz
+											<span></span>
+										</div>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="images/imagess/sibel.jpg" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>Bir işin amacı, müşteriyi kazanmak ve tutmaktır.</p>
+										<div class="testi-meta">
+											Sibel Kurnaz Aktaş
+											<span></span>
+										</div>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="images/imagess/t%C3%BCrker.jpg" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>Müşteri anlamak zorunda değildir, müşteri müşteridir.</p>
+										<div class="testi-meta">
+										Türker Aktaş
+											<span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						<img src="images/footer-logo.png" alt="Footer Logo" class="footer-logo">
+
+						Copyrights &copy; 2018 Tüm hakları İlayda KURNAZ'da saklıdır.
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="copyrights-menu copyright-links fright clearfix">
+							/ <a href="index.html">Ana Sayfa</a>/<a href="team.html">Takımımız</a>/<a href="about.html">Hakkımızda</a>/<a href="contact.html">İletişim</a>
+						</div>
+						<div class="fright clearfix">
+                            
+							<a href="https://github.com/ilaydakurnaz" class="social-icon si-small si-borderless nobottommargin si-github">
+								<i class="icon-github"></i>
+								<i class="icon-github"></i>
+							</a>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>
